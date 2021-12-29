@@ -13,7 +13,7 @@ export const piecejobAPI = createApi({
     baseQuery: fetchBaseQuery({ baseUrl }),
     endpoints: (builder) => ({
         getServices: builder.query({
-            query: () => createRequest('/AService/GetServices?limit=10')
+            query: (count) => createRequest(`/AService/GetServices?limit=${count}`)
         })
     })
 });
