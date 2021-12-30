@@ -1,17 +1,30 @@
-import React from 'react'
+import React, {useState} from 'react'
 import {Switch, Route, Link, Routes} from 'react-router-dom';
 import {Layout, Typography, Space} from 'antd';
-import { Navbar, Homepage, Services, Members } from './components';
+import { Navbar, Homepage, Services, Members, LoginForm } from './components';
 import './App.css';
 
 const App = () => {
+    const [user, setUser] = useState({email: "", password: "", token: ""});
+    const [error, setError] = useState("");
+
+    const Login = details =>{
+        console.log(details);
+    }
+  
+    const Logout = () => {
+        console.log("logout");
+    }
+
     return (
         <div className="app">
             <div className="navbar">
                 <Navbar />
             </div>
             <div className="main">
-                <Layout>
+                {(user.email != "") ?
+                (
+                    <Layout>
                     <div className="switch">
                         <Routes>
                             <Route exact path="/" element={<Homepage />}/>
@@ -20,6 +33,10 @@ const App = () => {
                         </Routes>
                     </div>
                 </Layout>
+                ) : (
+                    <LoginForm />
+                )};
+
                 <div className="footer">
                     <Typography.Title level={5} style={{ color:'white', textAlign: 'center' }}>
                         Piece Job <br />

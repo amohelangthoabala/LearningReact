@@ -16,12 +16,6 @@ const Homepage = () => {
 
     return (
         <>
-        <Title level={2} className="heading">Piece Job Usage</Title>
-        <Row>
-            <Col span={12}><Statistic title="Total consultants" value={globalStats} /></Col>
-            <Col span={12}><Statistic title="Total Members" value="5" /></Col>
-            <Col span={12}><Statistic title="Total consultants" value="5" /></Col>
-        </Row>
         <div className="home-heading-container">
              <Title level={2} className="hme-title">Top 10 services</Title>
              <Title level={3} className="show-more"><Link to="/services">show more</Link></Title>
