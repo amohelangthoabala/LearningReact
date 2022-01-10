@@ -25,28 +25,43 @@ const Navbar = () => {
 
     return (
         <div className="nav-container">
-            <div className="logo-container">
-                <Avatar src= {icon} size="large" />
-                <Typography.Title level={2} className="logo">
-                    <Link to="/">Piece Job</Link>
-                </Typography.Title>
-                <Button className="menu-control-container" onClick={() => setActiveMenu(!activeMenu)}>
-                    <MenuOutlined />
-                </Button>
-            </div>
             {activeMenu && (
-                <Menu theme="dark">
-                    <Menu.Item icon={<HomeOutlined />} >
-                        <Link to="/">Home</Link>
+                <Menu mode="horizontal" defaultSelectedKeys={['2']}>
+                    <Menu.Item >
+                        <Link to="/">Electricity</Link>
                     </Menu.Item>
-                    <Menu.Item icon={<FundOutlined />} >
-                        <Link to="/services">Service Providers</Link>
+                    <Menu.Item >
+                        <Link to="/services">Graphic & Design</Link>
                     </Menu.Item>
-                    <Menu.Item icon={<BulbOutlined />} >
-                        <Link to="/member">Members</Link>
+                    <Menu.Item >
+                        <Link to="/member">Business</Link>
                     </Menu.Item>
-                    <Menu.Item icon={<HomeOutlined />} >
-                        <Link to="/help">Help</Link>
+                    <Menu.Item >
+                        <Link to="/help">Law</Link>
+                    </Menu.Item>
+                    <Menu.Item >
+                        <Link to="/">Electricity</Link>
+                    </Menu.Item>
+                    <Menu.Item >
+                        <Link to="/services">Graphic & Design</Link>
+                    </Menu.Item>
+                    <Menu.Item >
+                        <Link to="/member">Business</Link>
+                    </Menu.Item>
+                    <Menu.Item >
+                        <Link to="/help">Law</Link>
+                    </Menu.Item>
+                    <Menu.Item >
+                        <Link to="/">Electricity</Link>
+                    </Menu.Item>
+                    <Menu.Item >
+                        <Link to="/services">Graphic & Design</Link>
+                    </Menu.Item>
+                    <Menu.Item >
+                        <Link to="/member">Business</Link>
+                    </Menu.Item>
+                    <Menu.Item >
+                        <Link to="/help">Law</Link>
                     </Menu.Item>
                 </Menu>
             )}

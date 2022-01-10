@@ -27,9 +27,9 @@ const Services = ({simplified}) => {
                 </div>
             )}
 
-            <Row gutter={32,32} className="crypto-card-container">
+            <Row gutter={[32,32]} className="crypto-card-container" justify="space-around">
                 {services?.map((service) => (
-                    <Col xs={24} sm={12} lg={6} className='crypto-card'>
+                    <Col xs={24} sm={12} lg={24} className='crypto-card'>
                         <Link to={`/services`}>
                             <Card
                                 title ={`${service.serviceName} . ${service.serviceType}`}

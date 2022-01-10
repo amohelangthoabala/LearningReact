@@ -1,18 +1,18 @@
-/*import {createApi, fetchBaseQuery} from '@reduxjs/toolkit/query/react';
+import {createApi, fetchBaseQuery} from '@reduxjs/toolkit/query/react';
 
-const LoginHeaders = {
+const authenticateHeaders = {
     'Content-Type': 'application/x-www-form-urlencoded'
 }
-const LoginBody = {
+const authenticateBody = {
     loginName: 'amohelangt@chaperone.co.ls',
     password: '1'
 }
 const baseUrl = 'https://localhost:5011/piecejob/api';
 
-const createRequest = (url) => ({ url, headers: LoginHeaders, body: LoginBody});
+const createRequest = (url) => ({ url, headers: authenticateHeaders, body: authenticateBody});
 
-export const LoginAPI = createApi({
-    reducerPath: 'LoginAPI',
+export const authenticateAPI = createApi({
+    reducerPath: 'authenticateAPI',
     baseQuery: fetchBaseQuery({ baseUrl }),
     endpoints: (builder) => ({
         getUser: builder.query({
@@ -22,6 +22,6 @@ export const LoginAPI = createApi({
 });
 export const {
     useGetUserQuery,
-} = LoginAPI; 
-*/
+} = authenticateAPI; 
+
 

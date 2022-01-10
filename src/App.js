@@ -1,40 +1,72 @@
 import React, {useState} from 'react'
-import {Switch, Route, Link, Routes} from 'react-router-dom';
-import {Layout, Typography, Space} from 'antd';
-import { Navbar, Homepage, Services, Members, LoginForm } from './components';
+import {Route, Link, Routes} from 'react-router-dom';
+import {Layout, Typography, Space, Button, Affix} from 'antd';
+import 
+    { 
+        Navbar, Homepage,
+        Services, Members, 
+        LoginForm, Header,
+        Home, Login
+    } 
+     from './components';
+import {useGetUserQuery} from './services/LoginAPI'
 import './App.css';
 
 const App = () => {
+    const adminUser = {
+        email: 'amohelangt@chaperone.co.ls',
+        password: '1',
+    }
     const [user, setUser] = useState({email: "", password: "", token: ""});
     const [error, setError] = useState("");
+    //const { data, isFetching } = useGetUserQuery({email, password});
+    
 
-    const Login = details =>{
+    const LoginValidation = details =>{
         console.log(details);
+        if(details.email === adminUser.email && details.password === adminUser.password){
+            console.log("we are in");
+            setUser({
+                email: details.email,
+            })
+        }else{
+            console.log("not found");
+            setError("Not found")
+            
+        }
     }
   
     const Logout = () => {
         console.log("logout");
+        setUser({
+            email: "", password: "", token: ""
+        })
     }
+
+    const [container, setContainer] = useState(null);
+
 
     return (
         <div className="app">
-            <div className="navbar">
-                <Navbar />
-            </div>
+            
+            
             <div className="main">
                 {(user.email != "") ?
                 (
                     <Layout>
+                    <div className="navbar"><Header /></div>
+                    <div ref={setContainer}><Affix target={() => container}><Navbar /></Affix></div>
                     <div className="switch">
                         <Routes>
-                            <Route exact path="/" element={<Homepage />}/>
+                            <Route exact path="/" element={<Home />}/>
                             <Route exact path="/services" element={<Services />}/>
                             <Route exact path="/member" element={<Members />}/>
                         </Routes>
+                        <Button level={3} className="show-more" onClick={Logout}>Logout</Button>
                     </div>
                 </Layout>
                 ) : (
-                    <LoginForm />
+                    <Login LoginValidation={LoginValidation} error={error} />
                 )};
 
                 <div className="footer">
